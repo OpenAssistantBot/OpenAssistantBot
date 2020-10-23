@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: "/api/chat/v1"
+
+spring:
+  application:
+    name: openboot
