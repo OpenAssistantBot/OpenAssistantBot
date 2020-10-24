@@ -1,13 +1,11 @@
-FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+FROM ubuntu:16.04
 RUN apt-get clean && apt-get update
 RUN apt-get install -yqq curl
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
-RUN apt-get install -yqq build-essential libbz2-dev libssl-dev libreadline-dev \
-                         libsqlite3-dev tk-dev libpng-dev libfreetype6-dev git \
-                         cmake wget gfortran libatlas-base-dev libatlas-dev \
-                         libatlas3-base libhdf5-dev libxml2-dev libxslt-dev \
-                         zlib1g-dev pkg-config graphviz liblapacke-dev \
-                         locales nodejs
+RUN apt-get install -yqq build-essential libbz2-dev libssl-dev libreadline-dev git\
+                         libsqlite3-dev cmake wget gfortran libatlas-base-dev libatlas-dev \
+                         libatlas3-base libhdf5-dev libxslt-dev \
+                         zlib1g-dev pkg-config liblapacke-dev \
+                         locales
 
 RUN curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 ENV PYENV_ROOT /root/.pyenv
