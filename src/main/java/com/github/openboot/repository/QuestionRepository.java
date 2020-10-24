@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface QuestionRepository extends MongoRepository<Question, UUID> {
+
+    Question findByQuestion(String question);
 }
