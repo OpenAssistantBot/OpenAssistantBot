@@ -4,6 +4,8 @@ plugins {
     id 'java'
 }
 
+def profile = "develop"
+
 group = 'com.github.openboot'
 version = '0.0.1'
 sourceCompatibility = '11'
@@ -28,4 +30,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+bootRun {
+    args = ["--spring.profiles.active=" + profile]
 }

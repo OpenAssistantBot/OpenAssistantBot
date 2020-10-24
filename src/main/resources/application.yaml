@@ -5,3 +5,22 @@ server:
 spring:
   application:
     name: openboot
+
+--- # cloud # ---
+spring:
+  profiles: cloud
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
+      database: openboot-cloud
+
+--- # develop # ---
+spring:
+  profiles:
+    active: develop
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: openboot-develop
