@@ -1,6 +1,6 @@
 package com.github.openboot.controller;
 
-import com.github.openboot.dto.BotResponseDto;
+import com.github.openboot.dto.QuestionDto;
 import com.github.openboot.model.Question;
 import com.github.openboot.service.QuestionService;
 import lombok.RequiredArgsConstructor;
@@ -16,11 +16,11 @@ public class BotController {
     private final QuestionService questionService;
 
     @GetMapping
-    public BotResponseDto ask(String question) {
+    public QuestionDto ask(String question) {
         //...
         Question storedQuestion = questionService.search(question);
 
-        BotResponseDto response = new BotResponseDto();
+        QuestionDto response = new QuestionDto();
 
         if (storedQuestion != null) {
             response.setAnswer(storedQuestion.getQuestion() + "\n" + storedQuestion.getSteps());
