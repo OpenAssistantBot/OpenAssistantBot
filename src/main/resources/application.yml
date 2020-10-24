@@ -1,6 +1,9 @@
 spring:
   application:
     name: openboot
+server:
+  servlet:
+    context-path: /api/chat/v1
 
 --- # cloud # ---
 spring:
