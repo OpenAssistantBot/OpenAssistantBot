@@ -8,9 +8,28 @@ Chatbot for quickly finding answers to questions.
 - Openshift
 - Docker
 - Kubernates
+- Python
 
 ## How to use?
-### 1.
+### 1. NLP Service.
+!!! Downloads a lot of staff. Downloading Fasttext model takes 20 minutes.
+Downloading Ubuntu image takes time too.
+It seems that not everything in Dockerfile is necessary, I am working on that.
+```
+cd ./nlp
+docker build --tag nlp .
+docker run -p  127.0.0.1:80:5000 nlp:latest
+```
+After 'Running on http://0.0.0.0:5000/' appeared in logs, you can send requests to the nlp service.
+E. g. 
+```
+import requests
+res = requests.get('http://127.0.0.1:80/', data=json.dumps({'question':'изменить номер смс'}))
+print(res.json())
+
+>>> {'value': 'Как поменять номер для SMS-уведомлений', 'distance': '0.079695225'}
+```
+
 ### 2.
 ### 3.
 ### 4.

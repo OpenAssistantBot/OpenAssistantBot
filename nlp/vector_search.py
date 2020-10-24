@@ -1,4 +1,5 @@
 import nmslib
+import nltk
 from nltk.corpus import stopwords
 import fasttext
 import numpy as np
@@ -9,8 +10,11 @@ app = Flask(__name__)
 
 INDEX = nmslib.init(method='hnsw', space='cosinesimil')
 INDEX.loadIndex('index.nmslib', load_data=True)
-MODEL = fasttext.load_model("model.bin")
+MODEL = fasttext.load_model("ft_native_300_ru_twitter_nltk_word_tokenize.bin")
+nltk.download('stopwords')
 STOPWORDS = stopwords.words('russian')
+with open('mapping.json', 'r') as f:
+    MAPPING = json.load(f)
 
 
 def preprocess(x):
@@ -31,4 +35,9 @@ def handle_question():
     processed = preprocess(question)
     vectorized = vectorize(processed)
     id_, distance = INDEX.knnQuery(vectorized, k=1)
-    return json.dumps({'similar_question': str(id_[0])})
+    return json.dumps({'value': MAPPING[str(id_[0])],
+                       'distance': str(distance[0])})
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
