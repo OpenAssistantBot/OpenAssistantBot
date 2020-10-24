@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CsvParserService {
 
-    List<String> initDB();
+    List<String> initDatabase();
 
-    List<String> updateDB(String path);
+    List<String> updateDatabase(String path);
 }
