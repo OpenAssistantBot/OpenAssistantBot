@@ -3,7 +3,7 @@ package com.github.openboot.dto;
 import lombok.Data;
 
 @Data
-public class BotResponseDto {
+public class QuestionDto {
 
     private String answer;
 }
