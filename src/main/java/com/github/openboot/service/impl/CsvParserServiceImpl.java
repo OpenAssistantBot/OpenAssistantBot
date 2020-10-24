@@ -39,6 +39,11 @@ public class CsvParserServiceImpl implements CsvParserService {
         return questions.stream().map(Question::getQuestion).collect(Collectors.toList()); // не учитывает дубликаты
     }
 
+    @Override
+    public void deleteAll() {
+        questionRepository.deleteAll();
+    }
+
     private List<Question> parseCsv(String file) {
 
         List<Question> questions = new ArrayList<>();

@@ -9,14 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/init")
+@RequestMapping("/database")
 @RequiredArgsConstructor
-public class InitController {
+public class DatabaseController {
 
     private final CsvParserService parserService;
 
-    @GetMapping
+    @GetMapping("/init")
     public List<String> init() {
+        return parserService.initDatabase();
+    }
+
+    @GetMapping("/drop")
+    public List<String> drop() {
         return parserService.initDatabase();
     }
 }

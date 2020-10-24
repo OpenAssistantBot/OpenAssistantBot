@@ -7,4 +7,6 @@ public interface CsvParserService {
     List<String> initDatabase();
 
     List<String> updateDatabase(String path);
+
+    void deleteAll();
 }
