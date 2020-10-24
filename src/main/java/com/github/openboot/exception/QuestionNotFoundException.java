@@ -1,11 +1,14 @@
 package com.github.openboot.exception;
 
+import lombok.Getter;
+
+@Getter
 public class QuestionNotFoundException extends RuntimeException {
 
     private final String name;
 
     public QuestionNotFoundException(String name) {
-        super("Question by name " + name + " is not found");
+        super("The question by a name '" + name + "' is not found.");
         this.name = name;
     }
 }
