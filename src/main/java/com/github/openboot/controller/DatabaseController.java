@@ -29,7 +29,7 @@ public class DatabaseController {
     @Deprecated
     @ApiOperation(value = "Delete all questions from database.")
     @GetMapping("/drop")
-    public List<String> drop() {
-        return parserService.initDatabase();
+    public void drop() {
+        parserService.deleteAll();
     }
 }
