@@ -1,16 +1,17 @@
 package com.github.openboot.model;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @Document
 public class Question {
 
-    private UUID id;
+    @Id
+    private String id;
 
     private String question;
 
@@ -20,5 +21,7 @@ public class Question {
 
     private String query;
 
-    private List<String> steps;
+    private List<Step> steps;
+
+    private List<String> links;
 }
