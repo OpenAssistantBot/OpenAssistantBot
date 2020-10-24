@@ -79,6 +79,7 @@ public class CsvParserServiceImpl implements CsvParserService {
     private void fillQuestion(Question question, List<String> links, List<Step> steps, Cell cell) {
         switch (cell.getColumnIndex()) {
             case 0:
+                question.setNumber((long) cell.getNumericCellValue());
                 break;
             case 1:
                 question.setQuery(cell.getStringCellValue());

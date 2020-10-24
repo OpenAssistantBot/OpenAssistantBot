@@ -13,6 +13,8 @@ public class Question {
     @Id
     private String id;
 
+    private Long number;
+
     private String question;
 
     private String clarification;
