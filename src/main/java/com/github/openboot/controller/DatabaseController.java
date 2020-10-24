@@ -21,7 +21,7 @@ public class DatabaseController {
     }
 
     @GetMapping("/drop")
-    public List<String> drop() {
-        return parserService.initDatabase();
+    public void drop() {
+        parserService.deleteAll();
     }
 }
