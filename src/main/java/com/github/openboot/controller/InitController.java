@@ -17,6 +17,6 @@ public class InitController {
 
     @GetMapping
     public List<String> init() {
-        return parserService.initDB();
+        return parserService.initDatabase();
     }
 }

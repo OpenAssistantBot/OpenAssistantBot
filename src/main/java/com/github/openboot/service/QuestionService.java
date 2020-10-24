@@ -1,6 +1,8 @@
 package com.github.openboot.service;
 
+import com.github.openboot.model.Question;
+
 public interface QuestionService {
 
-    String search(String question);
+    Question search(String question);
 }
