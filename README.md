@@ -12,9 +12,9 @@ Chatbot for quickly finding answers to questions.
 
 ## How to use?
 ### 1. NLP Service.
+Returns most similar question from db and cosine distance to it.
 !!! Downloads a lot of staff. Downloading Fasttext model takes 20 minutes.
 Downloading Ubuntu image takes time too.
-It seems that not everything in Dockerfile is necessary, I am working on that.
 ```
 cd ./nlp
 docker build --tag nlp .
