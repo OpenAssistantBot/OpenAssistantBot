@@ -1,13 +1,14 @@
-# openboot
+# openassistant
 Chatbot for quickly finding answers to questions.
 
 ## Stack
 - Java 11
 - Spring Boot
+- Hibernate
 - MongoDB
 - Openshift
 - Docker
-- Kubernates
+- Gradle
 - Python
 
 ## How to use?
