@@ -9,6 +9,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import java.io.FileInputStream;
@@ -21,13 +23,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CsvParserServiceImpl implements CsvParserService {
 
-    private final static String sourcePath = "data/knowledge_base.xlsx";
+    private final ResourceLoader resourceLoader;
+    private final static String sourcePath = "./data/knowledge_base.xlsx";
 
     private final QuestionRepository questionRepository;
 
     @Override
     public List<String> initDatabase() {
-        List<Question> questions = parseCsv(sourcePath);
+        List<Question> questions = null;
+        try {
+            questions = parseCsv(loadData().getFile().getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         questionRepository.saveAll(questions);
         return questions.stream().map(Question::getQuestion).collect(Collectors.toList());
     }
@@ -109,5 +117,10 @@ public class CsvParserServiceImpl implements CsvParserService {
                 steps.add(step);
             }
         }
+    }
+
+    public Resource loadData() {
+        return resourceLoader.getResource(
+                "classpath:data/knowledge_base.xlsx");
     }
 }

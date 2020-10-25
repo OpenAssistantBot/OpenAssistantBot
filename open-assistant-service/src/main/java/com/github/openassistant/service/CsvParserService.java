@@ -1,5 +1,6 @@
 package com.github.openassistant.service;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface CsvParserService {
