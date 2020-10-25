@@ -37,14 +37,20 @@ public class OpenAssistantBotApplication implements ApplicationRunner {
                             "Добро пожаловать, " + update.message().from().firstName() + "!"));
                 } else {
 
-                    String result = restTemplate.getForObject(
-                            "http://127.0.0.1:9090/api/chat/v1/bot?question=" + update.message().text(), String.class);
-
                     QuestionDto questionObject = null;
+
+
                     try {
-                        questionObject = objectMapper.readValue(result, QuestionDto.class);
-                    } catch (JsonProcessingException e) {
-                        e.printStackTrace();
+                        String result = restTemplate.getForObject(
+                                "http://127.0.0.1:9090/api/chat/v1/bot?question=" + update.message().text(), String.class);
+
+                        try {
+                            questionObject = objectMapper.readValue(result, QuestionDto.class);
+                        } catch (JsonProcessingException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (Exception e) {
+                        // ignore
                     }
 
                     if (questionObject != null) {
