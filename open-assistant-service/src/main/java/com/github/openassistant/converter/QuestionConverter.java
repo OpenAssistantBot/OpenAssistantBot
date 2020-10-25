@@ -15,7 +15,7 @@ public class QuestionConverter {
         answer.append(question.getNumber()).append(". ").append(question.getQuestion()).append("?\n");
         answer.append("Запрос: ").append(question.getQuery()).append("\n");
         answer.append("Тип ДБО: ").append(question.getType()).append("\n").append("\n").append("\n");
-        answer.append("Шаги: ").append(question.getType()).append("\n");
+        answer.append("Шаги: ").append("\n");
 
         for (Step step : question.getSteps()) {
             answer.append(count++).append(". ").append(step.getValue()).append("\n");
