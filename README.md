@@ -1,4 +1,4 @@
-# openassistant
+# OpenAssistantBot
 Chatbot for quickly finding answers to questions.
 
 ## Stack
