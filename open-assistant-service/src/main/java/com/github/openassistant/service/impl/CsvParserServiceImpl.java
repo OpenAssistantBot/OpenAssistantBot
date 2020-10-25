@@ -1,8 +1,8 @@
 package com.github.openassistant.service.impl;
 
+import com.github.openassistant.model.Question;
 import com.github.openassistant.model.Step;
 import com.github.openassistant.repository.QuestionRepository;
-import com.github.openassistant.model.Question;
 import com.github.openassistant.service.CsvParserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.poi.ss.usermodel.Cell;
@@ -13,8 +13,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,7 +32,7 @@ public class CsvParserServiceImpl implements CsvParserService {
     public List<String> initDatabase() {
         List<Question> questions = null;
         try {
-            questions = parseCsv(loadData().getFile().getAbsolutePath());
+            questions = parseCsv(loadData().getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,23 +41,16 @@ public class CsvParserServiceImpl implements CsvParserService {
     }
 
     @Override
-    public List<String> updateDatabase(String path) {
-        List<Question> questions = parseCsv(path);
-        questionRepository.saveAll(questions);
-        return questions.stream().map(Question::getQuestion).collect(Collectors.toList()); // не учитывает дубликаты
-    }
-
-    @Override
     public void deleteAll() {
         questionRepository.deleteAll();
     }
 
-    private List<Question> parseCsv(String file) {
+    private List<Question> parseCsv(InputStream inputStream) {
 
         List<Question> questions = new ArrayList<>();
 
         try {
-            XSSFWorkbook myExcelBook = new XSSFWorkbook(new FileInputStream(file));
+            XSSFWorkbook myExcelBook = new XSSFWorkbook(inputStream);
             XSSFSheet myExcelSheet = myExcelBook.getSheetAt(0);
 
             Question question;
@@ -121,6 +114,6 @@ public class CsvParserServiceImpl implements CsvParserService {
 
     public Resource loadData() {
         return resourceLoader.getResource(
-                "classpath:/data/knowledge_base.xlsx");
+                "classpath*:/data/knowledge_base.xlsx");
     }
 }
