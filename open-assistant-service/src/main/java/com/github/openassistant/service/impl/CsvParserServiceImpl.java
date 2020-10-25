@@ -121,6 +121,6 @@ public class CsvParserServiceImpl implements CsvParserService {
 
     public Resource loadData() {
         return resourceLoader.getResource(
-                "classpath:data/knowledge_base.xlsx");
+                "classpath:/data/knowledge_base.xlsx");
     }
 }

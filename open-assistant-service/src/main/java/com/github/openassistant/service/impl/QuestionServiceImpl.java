@@ -21,7 +21,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Question search(String question) {
-        Question goodQuestion =  questionRepository.findByQuestion(question);
+        Question goodQuestion =  questionRepository.findFirstByQuestion(question);
         if (goodQuestion != null) {
             return goodQuestion;
         }
@@ -41,6 +41,6 @@ public class QuestionServiceImpl implements QuestionService {
                     throw new QuestionNotFoundException(question);
                 });
 
-        return questionRepository.findByQuestion(questionObject.getValue());
+        return questionRepository.findFirstByQuestion(questionObject.getValue());
     }
 }
