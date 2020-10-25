@@ -35,7 +35,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         QuestionObject questionObject = Arrays.stream(questionObjects)
-                .filter(q -> q.getDistance() > 0.90)
+                .filter(q -> q.getDistance() > 0.5)
                 .findFirst()
                 .orElseThrow(() -> {
                     throw new QuestionNotFoundException(question);

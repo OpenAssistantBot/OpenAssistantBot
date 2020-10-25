@@ -49,7 +49,12 @@ docker-compose build
 docker-compose up
 ```
 
-### Step 6. Open browser
+### Step 6. Init database
+```
+http://localhost:8080/api/chat/v1/database/init
+```
+
+### Step 7. Open browser
 ```
 http://localhost:8080/api/chat/v1/bot?question=Как активировать карту
 ```
