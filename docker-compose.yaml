@@ -6,8 +6,8 @@ services:
     restart: always
     ports:
       - "27017:27017"
-  openboot:
-    container_name: openboot
+  open-assistant-service:
+    container_name: openassistant-service
     build: .
     restart: always
     ports:
@@ -15,7 +15,7 @@ services:
     expose:
       - 8080
     depends_on:
-      - mongodb
+      - npl
   nlp:
     container_name: nlp
     build: nlp
@@ -24,5 +24,13 @@ services:
       - "8081:8081"
     expose:
       - 8081
+  telegram-bot-service:
+    container_name: telegram-bot-service
+    build: telegram-bot-service
+  restart: always
+    ports:
+      - "8082:8082"
+    expose:
+      - 8082
     depends_on:
-      - openboot
+      - openassistant-service
