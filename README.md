@@ -17,22 +17,27 @@ Chatbot for quickly finding answers to questions.
 git clone https://github.com/openboot/openboot
 ```
 
-### Step 2. Build project
+### Step 2. Download model
+Please download model for AI:<br>
+http://files.deeppavlov.ai/embeddings/ft_native_300_ru_twitter_nltk_word_tokenize.bin
+
+
+### Step 3. Build project
 ```
 ./gradlew build --info
 ```
 
-### Step 3. Create Docker images
+### Step 4. Create Docker images
 ```
 docker-compose build
 ```
 
-### Step 4. Up services with Docker containers
+### Step 5. Up services with Docker containers
 ```
 docker-compose up
 ```
 
-### Step 5. Open browser
+### Step 6. Open browser
 ```
 http://localhost:8080/api/chat/v1/bot?question=Как активировать карту
 ```
