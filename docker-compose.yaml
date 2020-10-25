@@ -11,17 +11,17 @@ services:
     build: ./open-assistant-service
     restart: always
     ports:
-      - "5000:5000"
+      - "8080:8080"
     expose:
-      - 5000
+      - 8080
   nlp:
     container_name: nlp
     build: nlp
     restart: always
     ports:
-      - "8081:8081"
+      - "5000:5000"
     expose:
-      - 8081
+      - 5000
   telegram-bot-service:
     container_name: telegram-bot-service
     build: telegram-bot-service
