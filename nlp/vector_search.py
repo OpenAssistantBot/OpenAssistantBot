@@ -31,7 +31,7 @@ def vectorize(x):
 
 @app.route('/', methods=['GET', 'POST'])
 def handle_question():
-    question = json.loads(request.data)['question']
+    question = request.args.get('question')
     processed = preprocess(question)
     vectorized = vectorize(processed)
     id_, distance = INDEX.knnQuery(vectorized, k=1)
