@@ -4,11 +4,11 @@ plugins {
     id 'java'
 }
 
-def profile = "develop"
-
-group = 'openboot'
+group 'com.github.openassistant'
 version = '0.0.1'
 sourceCompatibility = '11'
+
+def profile = "develop"
 
 repositories {
     mavenCentral()
