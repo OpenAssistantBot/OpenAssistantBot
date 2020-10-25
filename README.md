@@ -11,29 +11,31 @@ Chatbot for quickly finding answers to questions.
 - Python
 
 ## How to use?
-### 1. NLP Service.
-Returns most similar question from db and cosine distance to it.
-!!! Downloads a lot of staff. Downloading Fasttext model takes 20 minutes.
-Downloading Ubuntu image takes time too.
-```
-cd ./nlp
-docker build --tag nlp .
-docker run -p  127.0.0.1:80:5000 nlp:latest
-```
-After 'Running on http://0.0.0.0:5000/' appeared in logs, you can send requests to the nlp service.
-E. g. 
-```
-import requests
-res = requests.get('http://127.0.0.1:80/', data=json.dumps({'question':'изменить номер смс'}))
-print(res.json())
 
->>> {'value': 'Как поменять номер для SMS-уведомлений', 'distance': '0.079695225'}
+### Step 1. Clone repository
+```
+git clone https://github.com/openboot/openboot
 ```
 
-### 2.
-### 3.
-### 4.
-### 5.
+### Step 2. Build project
+```
+./gradlew build --info
+```
+
+### Step 3. Create Docker images
+```
+docker-compose build
+```
+
+### Step 4. Up services with Docker containers
+```
+docker-compose up
+```
+
+### Step 5. Open browser
+```
+http://localhost:8080/api/chat/v1/bot?question=Как активировать карту
+```
 
 ## Team
 - [Sherzod Mamamdaliev](http://github.com/egnaf) &mdash; Product owner
