@@ -2,17 +2,15 @@ package com.github.openassistant.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.openassistant.model.QuestionObject;
-import com.github.openassistant.util.NplUtil;
 import com.github.openassistant.exception.QuestionNotFoundException;
 import com.github.openassistant.model.Question;
+import com.github.openassistant.model.QuestionObject;
 import com.github.openassistant.repository.QuestionRepository;
 import com.github.openassistant.service.QuestionService;
+import com.github.openassistant.util.NplUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
 
 @Service
 @RequiredArgsConstructor
