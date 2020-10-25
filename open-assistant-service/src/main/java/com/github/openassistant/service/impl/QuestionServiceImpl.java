@@ -41,9 +41,9 @@ public class QuestionServiceImpl implements QuestionService {
             throw new QuestionNotFoundException(question);
         }
 
-        if (Double.parseDouble(questionObject.getDistance()) < 0.5) {
-            throw new QuestionNotFoundException(question);
-        }
+//        if (Double.parseDouble(questionObject.getDistance()) < 0.5) {
+//            throw new QuestionNotFoundException(question);
+//        }
 
         return questionRepository.findFirstByQuestion(questionObject.getValue());
     }
