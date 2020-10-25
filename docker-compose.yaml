@@ -7,15 +7,13 @@ services:
     ports:
       - "27017:27017"
   open-assistant-service:
-    container_name: openassistant-service
-    build: open-assistant-service
+    container_name: open-assistant-service
+    build: ./open-assistant-service
     restart: always
     ports:
       - "8080:8080"
     expose:
       - 8080
-    depends_on:
-      - npl
   nlp:
     container_name: nlp
     build: nlp
@@ -27,10 +25,8 @@ services:
   telegram-bot-service:
     container_name: telegram-bot-service
     build: telegram-bot-service
-  restart: always
+    restart: always
     ports:
       - "8082:8082"
     expose:
       - 8082
-    depends_on:
-      - openassistant-service

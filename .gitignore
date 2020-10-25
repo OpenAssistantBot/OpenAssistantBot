@@ -38,3 +38,5 @@ out/
 
 ### Python ###
 __pycache__/
+
+/nlp/ft_native_300_ru_twitter_nltk_word_tokenize.bin
