@@ -6,5 +6,5 @@ import lombok.Data;
 public class QuestionObject {
 
     private String value;
-    private double distance;
+    private String distance;
 }

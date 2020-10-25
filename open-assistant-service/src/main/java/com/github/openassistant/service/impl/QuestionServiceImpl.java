@@ -27,19 +27,16 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         // Convert a bad question to list of the similar questions
-        QuestionObject[] questionObjects = restTemplate.getForEntity(NplUtil.URI + question,
-                QuestionObject[].class).getBody();
+        QuestionObject questionObject = restTemplate.getForObject(NplUtil.URI + question,
+                QuestionObject.class);
 
-        if (questionObjects == null) {
+        if (questionObject == null) {
             throw new QuestionNotFoundException(question);
         }
 
-        QuestionObject questionObject = Arrays.stream(questionObjects)
-                .filter(q -> q.getDistance() > 0.5)
-                .findFirst()
-                .orElseThrow(() -> {
-                    throw new QuestionNotFoundException(question);
-                });
+        if (Double.parseDouble(questionObject.getDistance()) < 0.5) {
+            throw new QuestionNotFoundException(question);
+        }
 
         return questionRepository.findFirstByQuestion(questionObject.getValue());
     }
