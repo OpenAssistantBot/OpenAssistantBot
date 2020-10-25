@@ -11,9 +11,9 @@ services:
     build: ./open-assistant-service
     restart: always
     ports:
-      - "8080:8080"
+      - "5000:5000"
     expose:
-      - 8080
+      - 5000
   nlp:
     container_name: nlp
     build: nlp

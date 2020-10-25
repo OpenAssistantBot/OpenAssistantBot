@@ -27,7 +27,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         // Convert a bad question to list of the similar questions
-        QuestionObject[] questionObjects = restTemplate.getForEntity(NplUtil.nplServiceUrl + question,
+        QuestionObject[] questionObjects = restTemplate.getForEntity(NplUtil.URI + question,
                 QuestionObject[].class).getBody();
 
         if (questionObjects == null) {
