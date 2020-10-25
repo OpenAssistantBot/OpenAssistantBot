@@ -18,12 +18,18 @@ git clone https://github.com/openboot/openboot
 ```
 
 ### Step 2. Download model
-Please download model for AI:<br>
+Please download model for AI and move to **nlp** directory:<br>
 http://files.deeppavlov.ai/embeddings/ft_native_300_ru_twitter_nltk_word_tokenize.bin
 
 
 ### Step 3. Build project
 ```
+cd open-assistant-service
+./gradlew build --info
+
+cd ..
+
+cd telegram-bot-service
 ./gradlew build --info
 ```
 
