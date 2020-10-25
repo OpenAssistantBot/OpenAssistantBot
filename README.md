@@ -3,6 +3,8 @@ Chatbot for quickly finding answers to questions.
 
 [![Telegram](https://img.shields.io/badge/Telegram-OpenAssistantBot-green.svg?style=flat-circle&colorB=blue)](http://t.me/openassistantbot)
 
+![Telegram Bot Demo](https://i.ibb.co/JsRzHd8/demo.png)
+
 ## Stack
 - Java 11
 - Spring Boot
