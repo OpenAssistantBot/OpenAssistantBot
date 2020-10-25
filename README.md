@@ -51,14 +51,20 @@ docker-compose build
 docker-compose up
 ```
 
-### Step 6. Init database
+### Step 6. Run spring boot application separately (because of with docker do not wotking)
 ```
-http://localhost:8080/api/chat/v1/database/init
+cd open-assistant-service
+./gradlew bootRun
 ```
 
-### Step 7. Open browser
+### Step 7. Init database
 ```
-http://localhost:8080/api/chat/v1/bot?question=Как активировать карту
+http://localhost:9090/api/chat/v1/database/init
+```
+
+### Step 8. Open browser
+```
+http://localhost:9090/api/chat/v1/bot?question=Как активировать карту
 ```
 
 ## Team
