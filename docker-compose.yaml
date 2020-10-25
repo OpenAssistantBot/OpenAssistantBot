@@ -22,11 +22,11 @@ services:
       - "5000:5000"
     expose:
       - 5000
-  telegram-bot-service:
-    container_name: telegram-bot-service
-    build: telegram-bot-service
-    restart: always
-    ports:
-      - "8082:8082"
-    expose:
-      - 8082
+#  telegram-bot-service:
+#    container_name: telegram-bot-service
+#    build: telegram-bot-service
+#    restart: always
+#    ports:
+#      - "8082:8082"
+#    expose:
+#      - 8082
