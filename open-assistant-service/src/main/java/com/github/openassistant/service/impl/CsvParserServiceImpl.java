@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class CsvParserServiceImpl implements CsvParserService {
 
     private final ResourceLoader resourceLoader;
-    private final static String sourcePath = "./data/knowledge_base.xlsx";
+    // private final static String sourcePath = "./data/knowledge_base.xlsx";
 
     private final QuestionRepository questionRepository;
 
@@ -114,6 +114,6 @@ public class CsvParserServiceImpl implements CsvParserService {
 
     public Resource loadData() {
         return resourceLoader.getResource(
-                "classpath*:/data/knowledge_base.xlsx");
+                "classpath:/data/knowledge_base.xlsx");
     }
 }
