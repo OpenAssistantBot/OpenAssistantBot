@@ -18,12 +18,17 @@ Chatbot for quickly finding answers to questions.
 git clone https://github.com/openboot/openboot
 ```
 
-### Step 2. Download model
+### Step 2. Download model and install Java
 Please download model for AI and move to **nlp** directory:<br>
 http://files.deeppavlov.ai/embeddings/ft_native_300_ru_twitter_nltk_word_tokenize.bin
 
+Install Java 11. On Ubuntu:
+```
+sudo apt install openjdk-11-jre
+```
 
 ### Step 3. Build project
+
 ```
 cd open-assistant-service
 ./gradlew build --info
