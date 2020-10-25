@@ -11,13 +11,14 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
+import static com.github.openboot.util.NplUtil.nplServiceUrl;
+
 @Service
 @RequiredArgsConstructor
 public class QuestionServiceImpl implements QuestionService {
 
     private final QuestionRepository questionRepository;
     private final RestTemplate restTemplate;
-    private final String aiServiceUrl = "http://localhost:8081/";
 
     @Override
     public Question search(String question) {
@@ -27,7 +28,8 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         // Convert a bad question to list of the similar questions
-        QuestionObject[] questionObjects = restTemplate.getForEntity(aiServiceUrl, QuestionObject[].class).getBody();
+        QuestionObject[] questionObjects = restTemplate.getForEntity(nplServiceUrl + question,
+                QuestionObject[].class).getBody();
 
         if (questionObjects == null) {
             throw new QuestionNotFoundException(question);

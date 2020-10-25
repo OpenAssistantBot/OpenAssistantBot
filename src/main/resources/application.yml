@@ -1,9 +1,12 @@
-spring:
-  application:
-    name: openboot
 server:
   servlet:
     context-path: /api/chat/v1
+  port: 8080
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: openboot
 
 --- # cloud # ---
 spring:
