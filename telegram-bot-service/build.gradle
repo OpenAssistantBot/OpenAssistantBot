@@ -1,0 +1,18 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group 'org.github.openassistant.bot'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.github.pengrad:java-telegram-bot-api:4.9.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
