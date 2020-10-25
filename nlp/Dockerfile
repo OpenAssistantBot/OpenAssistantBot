@@ -19,6 +19,6 @@ RUN python -m pip install -U numpy==1.19.1 # thanks to libatlas-base-dev (base! 
 COPY requirements.txt ./
 RUN python -m pip install -r requirements.txt
 RUN python -m pip install nmslib==2.0.6
-RUN wget http://files.deeppavlov.ai/embeddings/ft_native_300_ru_twitter_nltk_word_tokenize.bin
+# RUN wget http://files.deeppavlov.ai/embeddings/ft_native_300_ru_twitter_nltk_word_tokenize.bin
 COPY ./ ./
 CMD ["python", "./vector_search.py"]
